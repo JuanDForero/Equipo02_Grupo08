@@ -160,6 +160,6 @@ header{
     color: #4F90C4;
 }
 
-a{
-    text-decoration: nope;
+a:link{
+    text-decoration: none;
 }

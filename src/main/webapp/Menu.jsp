@@ -14,15 +14,15 @@
 
 			<!-- Menu Header -->
 			<ul class="main-menu">
-				<li id="usuario"><a class="menu" href="CRUD-Usuario.jsp" style="color:white;">Usuarios</a>
+				<li id="usuario"><a class="menu" href="CRUD-Usuario.jsp" >Usuarios</a>
 				</li>
-				<li id="cliente"><a class="menu" href="CRUD-Cliente.jsp" style="color:white;">Clientes</a>
+				<li id="cliente"><a class="menu" href="CRUD-Cliente.jsp" >Clientes</a>
 				</li>
-				<li id="proveedor"><a class="menu" href="CRUD-Proveedor.jsp" style="color:white;">Proveedores</a>
+				<li id="proveedor"><a class="menu" href="CRUD-Proveedor.jsp" >Proveedores</a>
 				</li>
-				<li id="producto"><a class="menu" href="" style="color:white;">Productos</a></li>
-				<li id="venta"><a class="menu" href="" style="color:white;">Ventas</a></li>
-				<li id="reporte"><a class="menu" href="" style="color:white;">Reportes</a></li>
+				<li id="producto"><a class="menu" href="" >Productos</a></li>
+				<li id="venta"><a class="menu" href="" >Ventas</a></li>
+				<li id="reporte"><a class="menu" href="" >Reportes</a></li>
 				<li class="cta">Sign Out</li>
 			</ul>
 		</header>
