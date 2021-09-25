@@ -85,7 +85,6 @@
 						</p>
 						<p class="block">
 							<input type="submit" name="cargar" value="Cargar Archivo">
-							<button type="submit" name="cargar">Cargar</button>
 						</p>
 						<p class="block">
 							<button name="actualizar">Actualizar</button>

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ import Modelo.Producto.ProductoDTO;
  * Servlet implementation class Producto
  */
 @WebServlet("/Producto")
+@MultipartConfig /* PARA QUE NOS RECONOSCA EL ARCHIVO */
 public class Producto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -102,7 +104,7 @@ public class Producto extends HttpServlet {
 		/* METODO CARGAR */
 		if (request.getParameter("cargar") != null) {
 			Part archivo = request.getPart("archivo");
-
+			JOptionPane.showMessageDialog(null, "Se trajo el archivo..."+archivo.getName());
 			// String tipo= archivo.getContentType();
 			String Url = "C:/Users/yazo_/eclipse-workspace/TiendaGenerica/src/main/webapp/Documentos/";
 			 //String Url="C:\\Users\\yazo_\\eclipse-workspace\\TiendaGenerica\\src\\main\\webapp\\Documentos";
