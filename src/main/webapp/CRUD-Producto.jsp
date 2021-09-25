@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="CSS/Menu.css">
 </head>
 <body>
-	<%!String nombre="";
-	int codigo,id;
-	double iva,venta,compra;%>
+	<%!String nombre = "";
+	int codigo, id;
+	double iva, venta, compra;%>
 
 	<%
 	if (request.getParameter("codigo") != null) {
@@ -39,7 +39,7 @@
 				<li id="producto"><a class="menu" href="CRUD-Producto.jsp">Productos</a></li>
 				<li id="venta"><a class="menu" href="">Ventas</a></li>
 				<li id="reporte"><a class="menu" href="">Reportes</a></li>
-				<li class="cta" href="Menu.jsp">Sign Out</li>
+				<li class="cta">Sign Out</li>
 			</ul>
 		</header>
 	</div>
@@ -49,14 +49,13 @@
 		<div data-content class="all-wrapper" id="clientecontainer">
 			<div class="formulario">
 				<h3>CRUD Clientes</h3>
-				<form action="Producto" method="POST">
+				<form action="Producto" method="POST" enctype="multipart/form-data">
 					<p>
 						<label>Codigo</label> <input type="text" name="codigo"
 							value="<%=codigo%>" required>
 					</p>
 					<p>
-						<label>IVA</label> <input type="text" name="iva"
-							value="<%=iva%>">
+						<label>IVA</label> <input type="text" name="iva" value="<%=iva%>">
 					</p>
 					<p>
 						<label>NIT Proveedor</label> <input type="text" name="id"
@@ -74,25 +73,23 @@
 						<label>Precio Venta</label> <input type="text" name="venta"
 							value="<%=venta%>">
 					</p>
-					<form action="Producto" method="POST" enctype="multipart/form-data">
-						<p>
-							<label>Nombre del Archivo</label> <input type="file"
-								name="archivo" value="Examinar"
-								accept="application/vnd.ms-excel">
-						</p>
-						<p class="block-cons">
-							<button name="consultar">Consultar</button>
-						</p>
-						<p class="block">
-							<input type="submit" name="cargar" value="Cargar Archivo">
-						</p>
-						<p class="block">
-							<button name="actualizar">Actualizar</button>
-						</p>
-						<p class="block">
-							<button type="" name="eliminar">Borrar</button>
-						</p>
-					</form>
+					<p >
+						<label>Nombre del Archivo</label> <input type="file"
+							class="upload-box" name="archivo" value="Examinar"
+							accept="application/vnd.ms-excel">
+					</p>
+					<p class="block-cons">
+						<button name="consultar">Consultar</button>
+					</p>
+					<p class="block">
+						<button type="submit" name="cargar">Cargar</button>
+					</p>
+					<p class="block">
+						<button name="actualizar">Actualizar</button>
+					</p>
+					<p class="block">
+						<button type="" name="eliminar">Borrar</button>
+					</p>
 				</form>
 			</div>
 			<!-- <div class="usuario-info"></div> -->
