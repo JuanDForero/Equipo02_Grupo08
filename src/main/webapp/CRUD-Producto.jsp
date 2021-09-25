@@ -48,7 +48,7 @@
 		<!-- FORM CLIENTE -->
 		<div data-content class="all-wrapper" id="clientecontainer">
 			<div class="formulario">
-				<h3>CRUD Productos</h3>
+				<h3>CRUD Producto</h3>
 				<form action="Producto" method="POST" enctype="multipart/form-data">
 					<p>
 						<label>Codigo</label> <input type="text" name="codigo"
