@@ -25,7 +25,7 @@
             <input type="reset" class="cancel" value="Cancelar">
         </form>
     </section>
-
+<!-- pr1 -->
     <script>
     	/*Despliegue del "placehoplder"*/
         var inputs = document.querySelectorAll('input[type=text], input[type=password]');
