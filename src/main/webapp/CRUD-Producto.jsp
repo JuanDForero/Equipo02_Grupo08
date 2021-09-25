@@ -73,7 +73,7 @@
 						<label>Precio Venta</label> <input type="text" name="venta"
 							value="<%=venta%>">
 					</p>
-					<p >
+					<p>
 						<label>Nombre del Archivo</label> <input type="file"
 							class="upload-box" name="archivo" value="Examinar"
 							accept="application/vnd.ms-excel">
@@ -88,7 +88,7 @@
 						<button name="actualizar">Actualizar</button>
 					</p>
 					<p class="block">
-						<button type="" name="eliminar">Borrar</button>
+						<button name="eliminar">Borrar</button>
 					</p>
 				</form>
 			</div>
