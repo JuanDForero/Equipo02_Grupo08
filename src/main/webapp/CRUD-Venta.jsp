@@ -8,8 +8,24 @@
 <link rel="stylesheet" href="CSS/Venta.css">
 </head>
 <body>
-	<%!String id = "", name = "", consec = "", cod_prod = "", name_prod = "", cant = "", valor = "", venta = "",
-			total = "", iva = "";%>
+	<%!String nombre="", name_prod = "";
+	int id, consec, cod_prod, cant, valor, venta,iva,total;%>
+	<%
+	if(request.getParameter("nombre")!=null){
+		id=Integer.parseInt(request.getParameter("id"));
+		nombre=request.getParameter("nombre");
+	}
+	
+	if(request.getParameter("name")!=null){
+		cod_prod=Integer.parseInt(request.getParameter("cod_prod"));
+		name_prod=request.getParameter("name");
+	}
+
+	if(request.getParameter("men")!=null){
+	String mensaje=request.getParameter("men");
+	out.print("<script type='text/javascript'>alert('"+mensaje+"');</script>");	
+	}
+	%>
 
 	<div>
 		<header id=header>
@@ -36,7 +52,7 @@
 		<div data-content class="all-wrapper" id="clientecontainer">
 			<div class="formulario">
 				<h3>CRUD Clientes</h3>
-				<form action="" method="POST">
+				<form action="Venta" method="POST">
 					<div class="cliente">
 						<p>
 						<label>Cédula</label> <input type="text" name="id"
@@ -49,7 +65,7 @@
 	
 						<p>
 							<label>Cliente</label> <input type="text" name="name"
-								value="<%=name%>" required>
+								value="<%=nombre%>">
 						</p>
 	
 						<p>
@@ -57,7 +73,8 @@
 								value="<%=consec%>">
 						</p>
 					</div>
-					
+				</form>
+				<form action="Detalle" method="POST">
 					<div class="producto">
 						<p>
 							<label>Cod.Producto</label> <input type="text" name="cod_prod"
@@ -142,7 +159,7 @@
 						</p>
 						
 						<p class="block">
-							<button type="submit" name="insertar">Confirmar</button>
+							<button type="submit" name="registrar">Confirmar</button>
 						</p>
 	
 						<p class="block-input">
