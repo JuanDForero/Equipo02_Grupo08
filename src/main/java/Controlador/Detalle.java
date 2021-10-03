@@ -39,8 +39,47 @@ public class Detalle extends HttpServlet {
 			
 			if(prod!=null) {
 				String name=prod.getNombre_Producto();
+				Double prec=prod.getPrecio_Venta();
 				cod=prod.getCodigo();
-				response.sendRedirect("CRUD-Venta.jsp?cod_prod=" + cod + "&&name=" + name);
+				
+				
+				response.sendRedirect("CRUD-Venta.jsp?cod_prod=" + cod + "&&name_prod=" + name + "&&prec=" + prec);
+				
+			}else {
+				response.sendRedirect("CRUD-Venta.jsp?men=El Cliente no se encontro");
+			}
+		}
+		
+		if(request.getParameter("consultar2")!=null) {
+			int cod= Integer.parseInt(request.getParameter("cod_prod2"));
+			ProductoDAO prodDAO=new ProductoDAO();
+			ProductoDTO prod= prodDAO.Buscar_Producto(cod);
+			
+			if(prod!=null) {
+				String name=prod.getNombre_Producto();
+				Double prec=prod.getPrecio_Venta();
+				cod=prod.getCodigo();
+				
+				
+				response.sendRedirect("CRUD-Venta.jsp?cod_prod2=" + cod + "&&name_prod2=" + name + "&&prec2=" + prec);
+				
+			}else {
+				response.sendRedirect("CRUD-Venta.jsp?men=El Cliente no se encontro");
+			}
+		}
+		
+		if(request.getParameter("consultar3")!=null) {
+			int cod= Integer.parseInt(request.getParameter("cod_prod3"));
+			ProductoDAO prodDAO=new ProductoDAO();
+			ProductoDTO prod= prodDAO.Buscar_Producto(cod);
+			
+			if(prod!=null) {
+				String name=prod.getNombre_Producto();
+				Double prec=prod.getPrecio_Venta();
+				cod=prod.getCodigo();
+				
+				
+				response.sendRedirect("CRUD-Venta.jsp?cod_prod3=" + cod + "&&name_prod3=" + name + "&&prec3=" + prec);
 				
 			}else {
 				response.sendRedirect("CRUD-Venta.jsp?men=El Cliente no se encontro");
@@ -55,11 +94,48 @@ public class Detalle extends HttpServlet {
 			DetalleDTO prodDTO=new DetalleDTO(cantidad,id_producto,id_venta);
 			DetalleDAO prodDAO= new DetalleDAO();
 			
-			if(prodDAO.Inserta_Factura(prodDTO)) {
-				response.sendRedirect("CRUD-Venta.jsp?men=Factura Registrada Correctamente");
-			}else {
-				response.sendRedirect("CRUD-Venta.jsp?men=Factura no se Registro");
+			
+			
+			if (prodDAO.Calcular_detalle(prodDTO)) {
+				
+				double total1 =Integer.parseInt( request.getParameter("cant")); 
+				
+				double precio;
+				//precio = prodDAO.Calcular_detalle(prodDTO);
+				if(prodDAO.Inserta_Factura(prodDTO)) {
+					
+					
+					response.sendRedirect("CRUD-Venta.jsp?men=Factura Registrada Correctamente");
+				}else {
+					response.sendRedirect("CRUD-Venta.jsp?men=Factura no se Registro");
+				}
+				
 			}
+			
+		}
+		
+		
+		if(request.getParameter("confirmar")!=null) {
+			
+		double valor=0,valor2=0,valor3=0,precio,precio2,precio3,venta;
+		int cant,cant2,cant3;
+		
+		precio = Double.parseDouble(request.getParameter("prec")) ;
+		cant = Integer.parseInt(request.getParameter("cant")) ;	
+		valor = cant * precio;
+		
+		precio2 = Double.parseDouble(request.getParameter("prec2")) ;
+		cant2 = Integer.parseInt(request.getParameter("cant2")) ;	
+		valor2 = cant2 * precio2;
+		
+		precio3 = Double.parseDouble(request.getParameter("prec3")) ;
+		cant3 = Integer.parseInt(request.getParameter("cant3")) ;	
+		valor3 = cant3 * precio3;
+		
+		venta = valor + valor2 + valor3;
+		
+		response.sendRedirect("CRUD-Venta.jsp?valor=" +valor+"&&cant="+cant+ "&&valor2="+valor2+"&&cant2="+cant2+"&&valor3="+valor3+"&&cant3="+cant3+"&&venta="+venta);
+		
 		}
 	}
 
