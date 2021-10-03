@@ -8,18 +8,58 @@
 <link rel="stylesheet" href="CSS/Venta.css">
 </head>
 <body>
-	<%!String nombre="", name_prod = "";
-	int id, consec, cod_prod, cant, valor, venta,iva,total;%>
+	<%!String nombre="", name_prod = "",name_prod2 = "",name_prod3 = "", prec="",prec2="",prec3="";
+	int id=0, consec=0, cod_prod=0,cod_prod2=0,cod_prod3=0, cant=0, cant2=0, cant3=0;
+	double valor=0,valor2=0,valor3=0,venta=0,iva=0,total=0;
+	%>
 	<%
 	if(request.getParameter("nombre")!=null){
 		id=Integer.parseInt(request.getParameter("id"));
 		nombre=request.getParameter("nombre");
 	}
 	
-	if(request.getParameter("name")!=null){
+	if(request.getParameter("name_prod")!=null )
+	{
 		cod_prod=Integer.parseInt(request.getParameter("cod_prod"));
-		name_prod=request.getParameter("name");
+		name_prod=request.getParameter("name_prod");
+		prec = request.getParameter("prec");
+		
+		
+		
 	}
+	
+	if(request.getParameter("name_prod2")!=null )
+	{
+		cod_prod2=Integer.parseInt(request.getParameter("cod_prod2"));
+		name_prod2=request.getParameter("name_prod2");
+		prec2 = request.getParameter("prec2");
+						
+	}
+	
+	if(request.getParameter("name_prod3")!=null )
+	{
+		cod_prod3=Integer.parseInt(request.getParameter("cod_prod3"));
+		name_prod3=request.getParameter("name_prod3");
+		prec3 = request.getParameter("prec3");
+						
+	}
+	
+	if(request.getParameter("valor")!=null || request.getParameter("valor2")!=null || request.getParameter("valor3")!=null){
+		
+		cant =Integer.parseInt(request.getParameter("cant"));
+		valor =Double.parseDouble(request.getParameter("valor"));
+		
+		cant2 =Integer.parseInt(request.getParameter("cant2"));
+		valor2 =Double.parseDouble(request.getParameter("valor2"));
+		
+		cant3 =Integer.parseInt(request.getParameter("cant3"));
+		valor3 =Double.parseDouble(request.getParameter("valor3"));
+		
+		venta=Double.parseDouble(request.getParameter("venta"));
+		
+	}
+	
+	
 
 	if(request.getParameter("men")!=null){
 	String mensaje=request.getParameter("men");
@@ -76,6 +116,7 @@
 				</form>
 				<form action="Detalle" method="POST">
 					<div class="producto">
+					<!--11111111111111111111111111111111111111111111111111111111111111111111111111111111-->
 						<p>
 							<label>Cod.Producto</label> <input type="text" name="cod_prod"
 								value="<%=cod_prod%>">
@@ -95,58 +136,75 @@
 								value="<%=cant%>">
 						</p>
 	
+						<p>
+							<label>Precio</label> <input type="text" name="prec"
+								value="<%=prec%>">
+						</p>
+						
 						<p>
 							<label>Valor Total</label> <input type="text" name="valor"
 								value="<%=valor%>">
 						</p>
 						
+					<!--222222222222222222222222222222222222222222222222222222222222222222222222-->
 						<p>
-							<label>Cod.Producto</label> <input type="text" name="cod_prod"
-								value="<%=cod_prod%>">
+							<label>Cod.Producto</label> <input type="text" name="cod_prod2"
+								value="<%=cod_prod2%>">
 						</p>
 	
 						<p class="block">
-							<button name="consultar">Consultar</button>
+							<button name="consultar2">Consultar</button>
 						</p>
 	
 						<p>
 							<label>Nombre Producto</label> <input type="text"
-								name="name_prod" value="<%=name_prod%>">
+								name="name_prod2" value="<%=name_prod2%>">
 						</p>
 	
 						<p>
-							<label>Cant</label> <input type="text" name="cant"
-								value="<%=cant%>">
-						</p>
-	
-						<p>
-							<label>Valor Total</label> <input type="text" name="valor"
-								value="<%=valor%>">
+							<label>Cant</label> <input type="text" name="cant2"
+								value="<%=cant2%>">
 						</p>
 						
 						<p>
-							<label>Cod.Producto</label> <input type="text" name="cod_prod"
-								value="<%=cod_prod%>">
+							<label>Precio</label> <input type="text" name="prec2"
+								value="<%=prec2%>">
+						</p>
+	
+						<p>
+							<label>Valor Total</label> <input type="text" name="valor2"
+								value="<%=valor2%>">
+						</p>
+				<!--333333333333333333333333333333333333333333333333333333333333333333333333333333333-->
+						<p>
+							<label>Cod.Producto</label> <input type="text" name="cod_prod3"
+								value="<%=cod_prod3%>">
 						</p>
 	
 						<p class="block">
-							<button name="consultar">Consultar</button>
+							<button name="consultar3">Consultar</button>
 						</p>
 	
 						<p>
 							<label>Nombre Producto</label> <input type="text"
-								name="name_prod" value="<%=name_prod%>">
+								name="name_prod3" value="<%=name_prod3%>">
 						</p>
 	
 						<p>
-							<label>Cant</label> <input type="text" name="cant"
-								value="<%=cant%>">
+							<label>Cant</label> <input type="text" name="cant3"
+								value="<%=cant3%>">
 						</p>
 	
 						<p>
-							<label>Valor Total</label> <input type="text" name="valor"
-								value="<%=valor%>">
+							<label>Precio</label> <input type="text" name="prec3"
+								value="<%=prec3%>">
 						</p>
+						
+						<p>
+							<label>Valor Total</label> <input type="text" name="valor3"
+								value="<%=valor3%>">
+						</p>
+						
 	
 						<p class="block-input">
 							<label>Total Venta</label> <input type="text" name="venta"
@@ -159,8 +217,10 @@
 						</p>
 						
 						<p class="block">
-							<button type="submit" name="registrar">Confirmar</button>
+							<button type="submit" name="confirmar">Confirmar</button>
 						</p>
+						
+						
 	
 						<p class="block-input">
 							<label>Total con IVA</label> <input type="text" name="iva"
