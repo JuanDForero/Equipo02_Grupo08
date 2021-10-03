@@ -94,24 +94,11 @@ public class Detalle extends HttpServlet {
 			DetalleDTO prodDTO=new DetalleDTO(cantidad,id_producto,id_venta);
 			DetalleDAO prodDAO= new DetalleDAO();
 			
-			
-			
-			if (prodDAO.Calcular_detalle(prodDTO)) {
-				
-				double total1 =Integer.parseInt( request.getParameter("cant")); 
-				
-				double precio;
-				//precio = prodDAO.Calcular_detalle(prodDTO);
-				if(prodDAO.Inserta_Factura(prodDTO)) {
-					
-					
-					response.sendRedirect("CRUD-Venta.jsp?men=Factura Registrada Correctamente");
-				}else {
-					response.sendRedirect("CRUD-Venta.jsp?men=Factura no se Registro");
-				}
-				
+			if(prodDAO.Inserta_Factura(prodDTO)) {
+				response.sendRedirect("CRUD-Venta.jsp?men=Factura Registrada Correctamente");
+			}else {
+				response.sendRedirect("CRUD-Venta.jsp?men=Factura no se Registro");
 			}
-			
 		}
 		
 		
