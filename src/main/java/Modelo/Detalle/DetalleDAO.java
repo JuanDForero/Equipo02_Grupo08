@@ -65,7 +65,7 @@ public class DetalleDAO {
                 double precio = 0;
                 while (res.next()) {
 					
-					precio = res.getInt(1);
+					precio = res.getDouble(1);
 				}
                 
                 sql="update detalle_ventas set valor_venta=?*? where codigo_detalle_venta=?";
@@ -83,7 +83,7 @@ public class DetalleDAO {
                 double iva = 0;
                 while (res.next()) {
 					
-					iva = res.getInt(1);
+					iva = res.getDouble(1);
 				}
                 
                 sql = "select valor_venta from detalle_ventas where codigo_detalle_venta=?";
@@ -94,7 +94,7 @@ public class DetalleDAO {
                 double valor = 0;
                 while (res.next()) {
 					
-					valor = res.getInt(1);
+					valor = res.getDouble(1);
 				}
                 
                 sql="update detalle_ventas set valoriva=?*? where codigo_detalle_venta=?";
@@ -112,7 +112,7 @@ public class DetalleDAO {
                 double valoriva = 0;
                 while (res.next()) {
 					
-					valoriva = res.getInt(1);
+					valoriva = res.getDouble(1);
 				}
                 
                 sql="update detalle_ventas set valor_total=(?+?) where codigo_detalle_venta=?";
