@@ -16,7 +16,7 @@ body{
 /*formulario CRUD*/
 .contenedor{
     height: 50%;
-    max-width: 1500px;
+    max-width: 1700px;
     margin-left: auto;
     margin-right: auto;
     z-index: 10;
@@ -44,7 +44,7 @@ body{
 
 .formulario .producto{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -55,7 +55,7 @@ body{
 }
 
 .formulario form .block-input{
-    grid-column: 6 / 6 ;
+    grid-column: 7 / 7 ;
 }
 
 .formulario form .block-cons,

@@ -10,7 +10,7 @@ public class DetalleDTO {
 	private int valor_venta;
 	private int iva;
 	
-	public DetalleDTO(int cantidad, int cod_producto, int cod_venta) {
+	public DetalleDTO(int cantidad, int cod_producto) {
 		super();
 		this.cantidad = cantidad;
 		this.cod_producto = cod_producto;
@@ -41,13 +41,7 @@ public class DetalleDTO {
 		this.cod_producto = cod_producto;
 	}
 
-	public int getCod_venta() {
-		return cod_venta;
-	}
-
-	public void setCod_venta(int cod_venta) {
-		this.cod_venta = cod_venta;
-	}
+	
 
 	public int getValor_total() {
 		return valor_total;

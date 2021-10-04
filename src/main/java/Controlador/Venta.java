@@ -43,6 +43,9 @@ public class Venta extends HttpServlet {
 				response.sendRedirect("CRUD-Venta?men=El Cliente no se encontro");
 			}
 		}
+		
+		
+		
 	}
 
 }

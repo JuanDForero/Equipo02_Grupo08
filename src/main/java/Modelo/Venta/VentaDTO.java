@@ -8,24 +8,23 @@ public class VentaDTO {
 	private double iva;
 	private double total_venta;
 	private double valor_venta;
+	private int cod_prod;
 	
-	public VentaDTO(int cod_venta, int id_cliente, int id_usuario, double iva, double total_venta, double valor_venta) {
+	public VentaDTO(int id_cliente, int id_usuario, int cod_prod) {
 		super();
-		this.cod_venta = cod_venta;
+		
 		this.id_cliente = id_cliente;
 		this.id_usuario = id_usuario;
-		this.iva = iva;
-		this.total_venta = total_venta;
-		this.valor_venta = valor_venta;
+		this.cod_prod = cod_prod;
+		
 	}
 
-	public int getCod_venta() {
-		return cod_venta;
-	}
+//	public VentaDTO(int cod_venta, int id_cliente, int id_usuario) {
+		
+//	}
 
-	public void setCod_venta(int cod_venta) {
-		this.cod_venta = cod_venta;
-	}
+
+	
 
 	public int getId_cliente() {
 		return id_cliente;
@@ -43,29 +42,16 @@ public class VentaDTO {
 		this.id_usuario = id_usuario;
 	}
 
-	public double getIva() {
-		return iva;
+	public int getCod_prod() {
+		return cod_prod;
 	}
 
-	public void setIva(double iva) {
-		this.iva = iva;
+	public void setCod_prod(int cod_prod) {
+		this.cod_prod = cod_prod;
 	}
+	
+	
 
-	public double getTotal_venta() {
-		return total_venta;
-	}
-
-	public void setTotal_venta(double total_venta) {
-		this.total_venta = total_venta;
-	}
-
-	public double getValor_venta() {
-		return valor_venta;
-	}
-
-	public void setValor_venta(double valor_venta) {
-		this.valor_venta = valor_venta;
-	}
 	
 	
 }
