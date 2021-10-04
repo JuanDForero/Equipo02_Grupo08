@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="CSS/Venta.css">
 </head>
 <body>
-	<%!String nombre="", name_prod = "",name_prod2 = "",name_prod3 = "", prec="",prec2="",prec3="";
+	<%!String nombre="", name_prod = "",name_prod2 = "",name_prod3 = "";
 	int id=0, consec=0, cod_prod=0,cod_prod2=0,cod_prod3=0, cant=0, cant2=0, cant3=0;
-	double valor=0,valor2=0,valor3=0,venta=0,iva=0,iva2=0,iva3=0,total=0;
+	double valor=0,valor2=0,valor3=0,venta=0,iva=0,iva2=0,iva3=0,total=0,prec=0,prec2=0,prec3=0;
 	%>
 	<%
 	if(request.getParameter("nombre")!=null){
@@ -22,7 +22,7 @@
 	{
 		cod_prod=Integer.parseInt(request.getParameter("cod_prod"));
 		name_prod=request.getParameter("name_prod");
-		prec = request.getParameter("prec");
+		prec = Double.parseDouble(request.getParameter("prec"));
 		iva = Double.parseDouble(request.getParameter("iva"));
 		
 		
@@ -32,7 +32,7 @@
 	{
 		cod_prod2=Integer.parseInt(request.getParameter("cod_prod2"));
 		name_prod2=request.getParameter("name_prod2");
-		prec2 = request.getParameter("prec2");
+		prec2 = Double.parseDouble(request.getParameter("prec2"));
 		iva2 = Double.parseDouble(request.getParameter("iva2"));
 						
 	}
@@ -41,23 +41,15 @@
 	{
 		cod_prod3=Integer.parseInt(request.getParameter("cod_prod3"));
 		name_prod3=request.getParameter("name_prod3");
-		prec3 = request.getParameter("prec3");
+		prec3 = Double.parseDouble(request.getParameter("prec3"));
 		iva3 = Double.parseDouble(request.getParameter("iva3"));
 						
 	}
 	
-	if(request.getParameter("valor")!=null )
-	{
-		
+	if(request.getParameter("valor")!=null ){
 		valor = Double.parseDouble(request.getParameter("valor"));
-		
 	}
-	
-	
-	
-	
-	
-	
+
 	if(request.getParameter("valor")!=null || request.getParameter("valor2")!=null || request.getParameter("valor3")!=null){
 		
 		cant =Integer.parseInt(request.getParameter("cant"));
@@ -233,26 +225,25 @@
 							<label>Valor Total</label> <input type="text" name="valor3"
 								value="<%=valor3%>">
 						</p>
-						
 	
 						<p class="block-input">
 							<label>Total Venta</label> <input type="text" name="venta"
 								value="<%=venta%>">
+						</p>
+						
+						<p class="block">
+							<button type="reset" name="limpiar">Limpiar Casillas</button>
 						</p>
 	
 						<p class="block-input">
 							<label>Total IVA</label> <input type="text" name="total"
 								value="<%=total%>">
 						</p>
-						
 					
-						
 						<p class="block">
 							<button type="submit" name="confirmar">Confirmar</button>
 						</p>
 						
-						
-	
 						<p class="block-input">
 							<label>Total con IVA</label> <input type="text" name="iva"
 								value="<%=iva%>">
