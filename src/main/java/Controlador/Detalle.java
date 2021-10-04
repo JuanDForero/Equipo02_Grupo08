@@ -98,7 +98,7 @@ public class Detalle extends HttpServlet {
 			double valor = 0, valor2 = 0, valor3 = 0, precio = 0, precio2 = 0, precio3 = 0, venta, iva, iva2, iva3;
 			int cant, cant2, cant3;
 			String nombre;
-			int cod_usuario = 123, cod_cliente=0, cod_prod, cod_prod2, cod_prod3;
+			int cod_usuario = 123, cod_cliente = 0, cod_prod, cod_prod2, cod_prod3;
 
 			precio = Double.parseDouble(request.getParameter("prec"));
 			cant = Integer.parseInt(request.getParameter("cant"));
@@ -116,7 +116,7 @@ public class Detalle extends HttpServlet {
 			cant3 = Integer.parseInt(request.getParameter("cant3"));
 			valor3 = cant3 * precio3;
 			iva3 = Double.parseDouble(request.getParameter("iva3"));
-			//cod_cliente = Integer.parseInt(request.getParameter("id"));
+			// cod_cliente = Integer.parseInt(request.getParameter("id"));
 			cod_cliente = 123;
 			// nombre = request.getParameter("name");
 			cod_prod3 = Integer.parseInt(request.getParameter("cod_prod3"));
@@ -124,35 +124,33 @@ public class Detalle extends HttpServlet {
 
 			VentaDAO venDAO = new VentaDAO();
 			DetalleDAO detDAO = new DetalleDAO();
-			
-			if (cod_cliente != 0) {
-				
-				if (cod_prod != 0) {
 
-				DetalleDTO det = new DetalleDTO(cant, cod_prod);
-				VentaDTO ven = new VentaDTO(cod_cliente, cod_usuario, cod_prod);
-				venDAO.Inserta_venta(ven);
-				detDAO.Inserta_Factura(det);
+			if (cod_cliente != 0 && (cod_prod != 0 || cod_prod2 != 0 || cod_prod3 != 0)) {
+
+				VentaDTO ven = new VentaDTO(cod_cliente, cod_usuario);
+				venDAO.Inserta_Venta(ven);
+
+				if (cod_prod != 0) {
+					DetalleDTO det = new DetalleDTO(cant, cod_prod);
+					detDAO.Inserta_Factura(det);
+					venDAO.Actualizar_Venta(ven);
 				}
 
 				if (cod_prod2 != 0) {
-
 					DetalleDTO det2 = new DetalleDTO(cant2, cod_prod2);
-					VentaDTO ven2 = new VentaDTO(cod_cliente, cod_usuario, cod_prod2);
-					venDAO.Inserta_venta(ven2);
 					detDAO.Inserta_Factura(det2);
+					venDAO.Actualizar_Venta(ven);
 				}
 
 				if (cod_prod3 != 0) {
 					DetalleDTO det3 = new DetalleDTO(cant3, cod_prod3);
-					VentaDTO ven3 = new VentaDTO(cod_cliente, cod_usuario, cod_prod3);
-					venDAO.Inserta_venta(ven3);
 					detDAO.Inserta_Factura(det3);
+					venDAO.Actualizar_Venta(ven);
 				}
 
 				response.sendRedirect("CRUD-Venta.jsp?valor=" + valor + "&&cant=" + cant + "&&valor2=" + valor2
 						+ "&&cant2=" + cant2 + "&&valor3=" + valor3 + "&&cant3=" + cant3 + "&&venta=" + venta);
-			}else {
+			} else {
 				response.sendRedirect("CRUD-Venta.jsp?men=venta no Registrada");
 
 			}

@@ -8,23 +8,13 @@ public class VentaDTO {
 	private double iva;
 	private double total_venta;
 	private double valor_venta;
-	private int cod_prod;
 	
-	public VentaDTO(int id_cliente, int id_usuario, int cod_prod) {
+	public VentaDTO(int id_cliente, int id_usuario) {
 		super();
 		
 		this.id_cliente = id_cliente;
 		this.id_usuario = id_usuario;
-		this.cod_prod = cod_prod;
-		
 	}
-
-//	public VentaDTO(int cod_venta, int id_cliente, int id_usuario) {
-		
-//	}
-
-
-	
 
 	public int getId_cliente() {
 		return id_cliente;
@@ -42,16 +32,4 @@ public class VentaDTO {
 		this.id_usuario = id_usuario;
 	}
 
-	public int getCod_prod() {
-		return cod_prod;
-	}
-
-	public void setCod_prod(int cod_prod) {
-		this.cod_prod = cod_prod;
-	}
-	
-	
-
-	
-	
 }
