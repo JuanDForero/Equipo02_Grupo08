@@ -56,13 +56,7 @@ public class DetalleDAO {
 					
 					cod_det = res.getInt(1);
 				}
-                
-                sql="update detalle_ventas set codigo_venta=? where codigo_detalle_venta=? ";
-                ps = con.prepareStatement(sql);
-                ps.setInt(1, cod_ven);
-                ps.setInt(2, cod_det);
-                resul = ps.executeUpdate()>0;     
-                
+                   
                 sql = "select precio_venta from productos where codigo_producto=?";
            	 	ps = con.prepareStatement(sql);
            	 	ps.setInt(1, det.getCod_producto());
@@ -73,6 +67,13 @@ public class DetalleDAO {
 					
 					precio = res.getInt(1);
 				}
+                
+                sql="update detalle_ventas set valor_venta=?*? where codigo_detalle_venta=?";
+                ps = con.prepareStatement(sql);
+                ps.setDouble(1, precio);
+                ps.setInt(2, det.getCantidad());
+                ps.setInt(3, cod_det);
+                resul = ps.executeUpdate()>0;
                 
                 sql = "select ivacompra from productos where codigo_producto=?";
            	 	ps = con.prepareStatement(sql);
@@ -85,17 +86,9 @@ public class DetalleDAO {
 					iva = res.getInt(1);
 				}
                 
-                sql="update detalle_ventas set valor_venta=?*? where codigo_detalle_venta=?";
-                ps = con.prepareStatement(sql);
-                ps.setDouble(1, precio);
-                ps.setInt(2, det.getCantidad());
-                ps.setInt(3, cod_ven);
-                resul = ps.executeUpdate()>0;
-                
-                
                 sql = "select valor_venta from detalle_ventas where codigo_detalle_venta=?";
            	 	ps = con.prepareStatement(sql);
-           	 	ps.setInt(1, det.getCod_producto());
+           	 	ps.setInt(1, cod_det);
                 res = ps.executeQuery();
                
                 double valor = 0;
@@ -113,7 +106,7 @@ public class DetalleDAO {
                 
                 sql = "select valoriva from detalle_ventas where codigo_detalle_venta=?";
            	 	ps = con.prepareStatement(sql);
-           	 	ps.setInt(1, det.getCod_producto());
+           	 	ps.setInt(1, cod_det);
                 res = ps.executeQuery();
                
                 double valoriva = 0;
