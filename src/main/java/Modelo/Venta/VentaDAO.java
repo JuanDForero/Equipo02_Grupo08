@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import Controlador.Conexion;
+import Modelo.Producto.ProductoDTO;
 
 public class VentaDAO {
 	Conexion cnn = new Conexion();
@@ -44,11 +45,11 @@ public class VentaDAO {
 			sql = "update ventas set cedula_usuario=? where codigo_venta=?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, ven.getId_usuario());
-			ps.setDouble(2, cod_ven);
+			ps.setInt(2, cod_ven);
 			resul = ps.executeUpdate() > 0;
 
 			if (resul) {
-				sql = "select sum(valoriva) from detalle_ventas where codigo_venta=?";
+				/*sql = "select sum(valoriva) from detalle_ventas where codigo_venta=?";
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, cod_ven);
 
@@ -57,14 +58,21 @@ public class VentaDAO {
 
 					ivaventa = res.getDouble(1);
 				}
+				
 
 				sql = "update ventas set ivaventa=? where codigo_venta=?";
 				ps = con.prepareStatement(sql);
 				ps.setDouble(1, ivaventa);
 				ps.setInt(2, cod_ven);
+				resul = ps.executeUpdate() > 0;*/
+				
+				sql = "update ventas set ivaventa= (select sum(detalle_ventas.valoriva)from detalle_ventas where codigo_venta=?) where codigo_venta=?";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, cod_ven);
+				ps.setInt(2, cod_ven);
 				resul = ps.executeUpdate() > 0;
-
-				sql = "select sum(valor_venta) from detalle_ventas where codigo_venta=?";
+				
+				/*sql = "select sum(valor_venta) from detalle_ventas where codigo_venta=?";
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, cod_ven);
 
@@ -78,13 +86,25 @@ public class VentaDAO {
 				ps = con.prepareStatement(sql);
 				ps.setDouble(1, totalventa);
 				ps.setInt(2, cod_ven);
+				resul = ps.executeUpdate() > 0;*/
+				
+				sql = "update ventas set total_venta= (select sum(detalle_ventas.valor_venta)from detalle_ventas where codigo_venta=?) where codigo_venta=?;";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, cod_ven);
+				ps.setInt(2, cod_ven);
 				resul = ps.executeUpdate() > 0;
 
-				sql = "update ventas set valor_venta=(?+?) where codigo_venta=?";
+				/*sql = "update ventas set valor_venta=(?+?) where codigo_venta=?";
 				ps = con.prepareStatement(sql);
 				ps.setDouble(1, ivaventa);
 				ps.setDouble(2, totalventa);
 				ps.setInt(3, cod_ven);
+				resul = ps.executeUpdate() > 0;*/
+				
+				
+				sql = "update ventas set valor_venta = ivaventa + total_venta where codigo_venta=?;";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, cod_ven);
 				resul = ps.executeUpdate() > 0;
 			}
 

@@ -9,9 +9,9 @@
 </head>
 <body>
 	<%!String nombre="", name_prod = "",name_prod2 = "",name_prod3 = "";
-	int id=0, consec=0, cod_prod=0,cod_prod2=0,cod_prod3=0, cant=0, cant2=0, cant3=0;
-	double valor=0,valor2=0,valor3=0,venta=0,iva=0,iva2=0,iva3=0,total=0,prec=0,prec2=0,prec3=0;
-	%>
+    int id=0, consec=0, cod_prod=0,cod_prod2=0,cod_prod3=0, cant=0, cant2=0, cant3=0;
+    double valor=0,valor2=0,valor3=0,venta=0,iva=0,iva2=0,iva3=0,total=0,prec=0,prec2=0,prec3=0,totalconiva=0;
+    %>
 	<%
 	if(request.getParameter("nombre")!=null){
 		id=Integer.parseInt(request.getParameter("id"));
@@ -24,8 +24,6 @@
 		name_prod=request.getParameter("name_prod");
 		prec = Double.parseDouble(request.getParameter("prec"));
 		iva = Double.parseDouble(request.getParameter("iva"));
-		
-		
 	}
 	
 	if(request.getParameter("name_prod2")!=null )
@@ -63,10 +61,10 @@
 		
 		venta=Double.parseDouble(request.getParameter("venta"));
 		
+		total = Double.parseDouble(request.getParameter("total"));
+        totalconiva = Double.parseDouble(request.getParameter("totalconiva"));
 	}
 	
-	
-
 	if(request.getParameter("men")!=null){
 	String mensaje=request.getParameter("men");
 	out.print("<script type='text/javascript'>alert('"+mensaje+"');</script>");	
@@ -98,7 +96,7 @@
 		<div data-content class="all-wrapper" id="clientecontainer">
 			<div class="formulario">
 				<h3>CRUD Clientes</h3>
-				<form action="Venta" method="POST">
+				<form action="Detalle" method="POST">
 					<div class="cliente">
 						<p>
 						<label>Cédula</label> <input type="text" name="id"
@@ -106,7 +104,7 @@
 						</p>
 	
 						<p class="block">
-							<button name="consultar">Consultar</button>
+							<button name="consultarcli">Consultar</button>
 						</p>
 	
 						<p>
@@ -119,8 +117,7 @@
 								value="<%=consec%>">
 						</p>
 					</div>
-				</form>
-				<form action="Detalle" method="POST">
+					
 					<div class="producto">
 					<!--11111111111111111111111111111111111111111111111111111111111111111111111111111111-->
 						<p>
@@ -245,8 +242,8 @@
 						</p>
 						
 						<p class="block-input">
-							<label>Total con IVA</label> <input type="text" name="iva"
-								value="<%=iva%>">
+							<label>Total con IVA</label> <input type="text" name="totalconiva"
+								value="<%=totalconiva%>">
 						</p>
 	
 					</div>
