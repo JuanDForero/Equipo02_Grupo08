@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import Modelo.Cliente.ClienteDAO;
 import Modelo.Cliente.ClienteDTO;
@@ -34,14 +35,22 @@ public class Venta extends HttpServlet {
 			ClienteDAO cliDAO=new ClienteDAO();
 			ClienteDTO cli= cliDAO.Buscar_Cliente(id);
 			
-			if(cli!=null) {
-				String nombre=cli.getNombre();
-				id=cli.getCedula();
-				response.sendRedirect("CRUD-Venta.jsp?id=" + id + "&&nombre=" + nombre);
+			
+			try {
 				
-			}else {
-				response.sendRedirect("CRUD-Venta?men=El Cliente no se encontro");
+				if(cli!=null) {
+					String nombre=cli.getNombre();
+					id=cli.getCedula();
+					response.sendRedirect("CRUD-Venta.jsp?id=" + id + "&&nombre=" + nombre);
+					
+				}
+				
+			} catch (Exception e) {
+				response.sendRedirect("CRUD-Usuario.jsp?men=El Cliente no se encontro");
+				
+				JOptionPane.showMessageDialog(null, "El Cliente no se encontro.");
 			}
+			
 		}
 		
 		

@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import Modelo.Cliente.ClienteDAO;
 import Modelo.Cliente.ClienteDTO;
@@ -49,7 +50,7 @@ public class Detalle extends HttpServlet {
 				response.sendRedirect("CRUD-Venta.jsp?id=" + id + "&&nombre=" + nombre);
 
 			} else {
-				response.sendRedirect("CRUD-Venta?men=El Cliente no se encontro");
+				response.sendRedirect("CRUD-Venta.jsp?men=El Cliente no se encontro");
 			}
 		}
 
@@ -68,7 +69,8 @@ public class Detalle extends HttpServlet {
 						"CRUD-Venta.jsp?cod_prod=" + cod + "&&name_prod=" + name + "&&prec=" + prec + "&&iva=" + iva);
 
 			} else {
-				response.sendRedirect("CRUD-Venta.jsp?men=El Cliente no se encontro");
+				response.sendRedirect("CRUD-Venta.jsp?men=El producto no se encontro");
+			
 			}
 		}
 
@@ -87,7 +89,7 @@ public class Detalle extends HttpServlet {
 						+ "&&iva2=" + iva);
 
 			} else {
-				response.sendRedirect("CRUD-Venta.jsp?men=El Cliente no se encontro");
+				response.sendRedirect("CRUD-Venta.jsp?men=El producto no se encontro");
 			}
 		}
 
@@ -106,7 +108,7 @@ public class Detalle extends HttpServlet {
 						+ "&&iva3=" + iva);
 
 			} else {
-				response.sendRedirect("CRUD-Venta.jsp?men=El Cliente no se encontro");
+				response.sendRedirect("CRUD-Venta.jsp?men=El producto no se encontro");
 			}
 		}
 
