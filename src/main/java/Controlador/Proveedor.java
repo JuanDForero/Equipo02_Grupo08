@@ -68,7 +68,7 @@ public class Proveedor extends HttpServlet {
 				response.sendRedirect("CRUD-Proveedor.jsp?id=" + id + "&&ciudad=" + ciudad + "&&direccion=" + direccion
 						+ "&&nombre=" + nombre + "&&telefono=" + telefono);
 			} else {
-				response.sendRedirect("CRUD-Proveedor.jsp?men=Usuario no registrado...");
+				response.sendRedirect("CRUD-Proveedor.jsp?men=Proveedor no registrado...");
 			}
 		}
 		
