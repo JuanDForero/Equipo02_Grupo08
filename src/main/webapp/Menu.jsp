@@ -29,7 +29,7 @@
 	</div>
 
 	<script>
-        /*Header fijo*/
+        /*Header fijo elemento*/
         var header = document.getElementById('Header')
 
         window.addEventListener('scroll', ()=>{
