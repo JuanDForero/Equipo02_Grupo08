@@ -48,13 +48,6 @@
 						<button name="ventasC">VENTAS POR CLIENTE</button>
 					</p>
 			</form>		
-					
-				
-				
-				
-				
-				
-				
 				
 			</div>
 			<!-- <div class="usuario-info"></div> -->
