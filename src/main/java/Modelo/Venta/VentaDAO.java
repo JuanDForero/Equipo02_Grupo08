@@ -29,6 +29,50 @@ public class VentaDAO {
 		}
 		return resul;
 	}
+	
+public VentaDTO consultar_venta(int consec) 
+
+{
+	
+	VentaDTO ve = null;
+	try {
+	String sql = "select codigo_venta from ventas order by codigo_venta desc limit 1";
+	ps = con.prepareStatement(sql);
+	res = ps.executeQuery();
+
+	int cod_ven = 0;
+	while (res.next()) {
+		
+		cod_ven = res.getInt(1);
+
+						}
+	
+	
+	sql = "select  codigo_venta,ivaventa,total_venta,valor_venta from ventas where codigo_venta=?";
+	
+	ps = con.prepareStatement(sql);
+	ps.setInt(1, cod_ven);
+	res = ps.executeQuery();
+	
+		while (res.next()) {
+			
+		//cod_ven = res.getInt(1);
+		ve = new VentaDTO(res.getInt(1),res.getDouble(2),res.getDouble(3),res.getDouble(4));
+						}
+
+		}catch(SQLException ex)
+	
+	
+	
+	{
+			
+			
+	}
+	
+	return ve;
+
+}
+
 
 	public boolean Actualizar_Venta(VentaDTO ven) {
 		boolean resul = false;
@@ -39,7 +83,9 @@ public class VentaDAO {
 
 			int cod_ven = 0;
 			while (res.next()) {
+				
 				cod_ven = res.getInt(1);
+			
 			}
 
 			sql = "update ventas set cedula_usuario=? where codigo_venta=?";
@@ -106,6 +152,9 @@ public class VentaDAO {
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, cod_ven);
 				resul = ps.executeUpdate() > 0;
+				
+				
+			
 			}
 
 		} catch (

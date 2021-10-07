@@ -30,7 +30,10 @@ public class DetalleDAO {
             int cod_ven = 0;
             while (res.next()) {
 				
-				cod_ven = res.getInt(1);
+				
+            	cod_ven = res.getInt(1);
+            //	det.setCod_venta(cod_ven); 
+				
 			}
             
             sql = "insert into detalle_ventas (cantidad_producto,codigo_producto,codigo_venta) values(?,?,?)";

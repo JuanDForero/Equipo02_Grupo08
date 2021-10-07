@@ -112,10 +112,10 @@ public class Detalle extends HttpServlet {
 
 		if (request.getParameter("confirmar") != null) {
 
-			double valor = 0, valor2 = 0, valor3 = 0, precio = 0, precio2 = 0, precio3 = 0, venta, iva, iva2, iva3,
-					total = 0, semitotal1 = 0, semitotal2 = 0, semitotal3 = 0, totalg = 0;
+			double valor = 0, valor2 = 0, valor3 = 0, precio = 0, precio2 = 0, precio3 = 0, venta=0, iva, iva2, iva3,
+					total = 0, semitotal1 = 0, semitotal2 = 0, semitotal3 = 0, totalconiva = 0;
 			int cant, cant2, cant3, cod_usuario = 123, cod_cliente = 0, cod_prod, cod_prod2, cod_prod3;
-
+			int consec=0;
 			cod_cliente = Integer.parseInt(request.getParameter("id"));
 
 			precio = Double.parseDouble(request.getParameter("prec"));
@@ -123,55 +123,98 @@ public class Detalle extends HttpServlet {
 			valor = cant * precio;
 			iva = Double.parseDouble(request.getParameter("iva"));
 			cod_prod = Integer.parseInt(request.getParameter("cod_prod"));
-			semitotal1 = (valor * iva);
+			//semitotal1 = (valor * iva);
 
 			precio2 = Double.parseDouble(request.getParameter("prec2"));
 			cant2 = Integer.parseInt(request.getParameter("cant2"));
 			valor2 = cant2 * precio2;
 			iva2 = Double.parseDouble(request.getParameter("iva2"));
 			cod_prod2 = Integer.parseInt(request.getParameter("cod_prod2"));
-			semitotal2 = (valor2 * iva2);
+			//semitotal2 = (valor2 * iva2);
 
 			precio3 = Double.parseDouble(request.getParameter("prec3"));
 			cant3 = Integer.parseInt(request.getParameter("cant3"));
 			valor3 = cant3 * precio3;
 			iva3 = Double.parseDouble(request.getParameter("iva3"));
 			cod_prod3 = Integer.parseInt(request.getParameter("cod_prod3"));
-			semitotal3 = (valor3 * iva3);
+			//semitotal3 = (valor3 * iva3);
 
-			venta = valor + valor2 + valor3;
-			total = semitotal1 + semitotal2 + semitotal3;
-			totalg = venta + total;
-
+			//venta = valor + valor2 + valor3;
+			//total = semitotal1 + semitotal2 + semitotal3;
+			//totalg = venta + total;
+		
 			VentaDAO venDAO = new VentaDAO();
 			DetalleDAO detDAO = new DetalleDAO();
-
+			
+			
+			//consec = ven1.getCod_venta();
+			//venDAO.consultar_venta(consec);
+			
+			
 			if (cod_cliente != 0 && (cod_prod != 0 || cod_prod2 != 0 || cod_prod3 != 0)) {
 
 				VentaDTO ven = new VentaDTO(cod_cliente, cod_usuario);
 				venDAO.Inserta_Venta(ven);
-
+				
+				
 				if (cod_prod != 0) {
 					DetalleDTO det = new DetalleDTO(cant, cod_prod);
 					detDAO.Inserta_Factura(det);
 					venDAO.Actualizar_Venta(ven);
-				}
+					venDAO.consultar_venta(consec);
+					VentaDTO ven1 = venDAO.consultar_venta(consec) ;
+					
+					if (ven1 != null) {
+						
+						consec = ven1.getCod_venta();
+						venta = ven1.getTotal_venta();
+						total = ven1.getIva();
+						totalconiva = ven1.getValor_venta();
+						
+										}
+					}
+				
 
 				if (cod_prod2 != 0) {
 					DetalleDTO det2 = new DetalleDTO(cant2, cod_prod2);
 					detDAO.Inserta_Factura(det2);
 					venDAO.Actualizar_Venta(ven);
+					venDAO.consultar_venta(consec);
+					VentaDTO ven1 = venDAO.consultar_venta(consec) ;
+					
+					if (ven1 != null) {
+						
+						consec = ven1.getCod_venta();
+						venta = ven1.getTotal_venta();
+						total = ven1.getIva();
+						totalconiva = ven1.getValor_venta();
+						
+						
+									}
 				}
 
 				if (cod_prod3 != 0) {
 					DetalleDTO det3 = new DetalleDTO(cant3, cod_prod3);
 					detDAO.Inserta_Factura(det3);
 					venDAO.Actualizar_Venta(ven);
+					venDAO.consultar_venta(consec);
+					VentaDTO ven1 = venDAO.consultar_venta(consec) ;
+					
+					
+						if (ven1 != null) {
+						
+							consec = ven1.getCod_venta();
+							venta = ven1.getTotal_venta();
+							total = ven1.getIva();
+							totalconiva = ven1.getValor_venta();
+						
+						
+										}
 				}
 
 				response.sendRedirect("CRUD-Venta.jsp?valor=" + valor + "&&cant=" + cant + "&&valor2=" + valor2
 						+ "&&cant2=" + cant2 + "&&valor3=" + valor3 + "&&cant3=" + cant3 + "&&venta=" + venta
-						+ "&&total=" + total + "&&totalconiva=" + totalg);
+						+ "&&total=" + total + "&&totalconiva=" + totalconiva +"&&consec="+consec);
 			} else {
 				response.sendRedirect("CRUD-Venta.jsp?men=venta no Registrada");
 

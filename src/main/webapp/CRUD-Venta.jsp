@@ -63,6 +63,8 @@
 		
 		total = Double.parseDouble(request.getParameter("total"));
         totalconiva = Double.parseDouble(request.getParameter("totalconiva"));
+        
+        consec = Integer.parseInt(request.getParameter("consec")) ;
 	}
 	
 	if(request.getParameter("men")!=null){

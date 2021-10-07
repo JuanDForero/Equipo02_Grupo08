@@ -21,6 +21,14 @@ public class DetalleDTO {
 		return cod_detalle;
 	}
 
+	public int getCod_venta() {
+		return cod_venta;
+	}
+
+	public void setCod_venta(int cod_venta) {
+		this.cod_venta = cod_venta;
+	}
+
 	public void setCod_detalle(int cod_detalle) {
 		this.cod_detalle = cod_detalle;
 	}
