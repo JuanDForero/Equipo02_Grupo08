@@ -38,7 +38,7 @@
 				<li id="proveedor"><a class="menu" href="CRUD-Proveedor.jsp">Proveedores</a></li>
 				<li id="producto"><a class="menu" href="CRUD-Producto.jsp">Productos</a></li>
 				<li id="venta"><a class="menu" href="CRUD-Venta.jsp">Ventas</a></li>
-				<li id="reporte"><a class="menu" href="">Reportes</a></li>
+				<li id="reporte"><a class="menu" href="CRUD-Reporte.jsp">Reportes</a></li>
 				<li class="cta">Sign Out</li>
 			</ul>
 		</header>
