@@ -36,9 +36,19 @@
 		<div data-content class="all-wrapper" id="clientecontainer">
 			<div class="formulario">
 				<h3>CRUD Reportes</h3>
+			<form action="Cliente" method="POST">	
 				
-				
-				
+				<p class="block-cons">
+						<button name="listaU">LISTADO DE USUARIOS</button>
+					</p>
+				<p class="block-cons">
+						<button name="listaC">LISTADO DE CLIENTES</button>
+					</p>
+				<p class="block-cons">
+						<button name="ventasC">VENTAS POR CLIENTE</button>
+					</p>
+			</form>		
+					
 				
 				
 				
