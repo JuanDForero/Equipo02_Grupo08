@@ -29,16 +29,16 @@ public class Reporte extends HttpServlet {
 				response.sendRedirect("ReporteUsuario.jsp");
 			
 		}
-		if (request.getParameter("listac") != null) {
+		if (request.getParameter("listaC") != null) {
 			
 			
-			response.sendRedirect("CRUD-Reporte.jsp");
+			response.sendRedirect("ReporteCliente.jsp");
 		
 	}
 		if (request.getParameter("ventasC") != null) {
 			
 			
-			response.sendRedirect("CRUD-Reporte.jsp");
+			response.sendRedirect("VentasPorCliente.jsp");
 		
 	}
 	}
