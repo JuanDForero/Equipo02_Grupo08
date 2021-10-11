@@ -63,7 +63,7 @@
 						<tr>
 							<th>CEDULA CLIENTE</th>
 							<th>NOMBRE CLIENTE</th>
-							<th>VALOR TOTAL DE LA COMPRA</th>
+							<th>VALOR TOTAL DE LA VENTA</th>
 
 
 						</tr>
