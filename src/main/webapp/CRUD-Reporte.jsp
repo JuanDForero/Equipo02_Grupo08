@@ -5,12 +5,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>CRUD-Reporte</title>
-<link rel="stylesheet" href="CSS/Menu.css">
+<link rel="stylesheet" href="CSS/Reporte.css">
 </head>
 <body>
-	
-
-
 	<div>
 		<header id=header>
 			<img src="Recursos/logo-tienda.png" alt="" class="logo">
@@ -36,26 +33,21 @@
 		<div data-content class="all-wrapper" id="clientecontainer">
 			<div class="formulario">
 				<h3>CRUD Reportes</h3>
-			<form action="Reporte" method="POST">	
-				
-				<p class="block-cons">
+				<form action="Reporte" method="POST">
+
+					<p class="block-cons">
 						<button name="listaU">LISTADO DE USUARIOS</button>
 					</p>
-					
-					
-					
-					
-				<p class="block-cons">
+
+					<p class="block-cons">
 						<button name="listaC">LISTADO DE CLIENTES</button>
+
 					</p>
-				<p class="block-cons">
+					
+					<p class="block-cons">
 						<button name="ventasC">VENTAS POR CLIENTE</button>
 					</p>
-			</form>		
-			
-			
-				
-				
+				</form>
 			</div>
 			<!-- <div class="usuario-info"></div> -->
 		</div>
