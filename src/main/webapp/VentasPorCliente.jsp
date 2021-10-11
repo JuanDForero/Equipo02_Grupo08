@@ -30,6 +30,18 @@
 	ps = con.prepareStatement(
 			"select c.cedula_cliente,c.nombre_cliente,sum(v.total_venta) from clientes as c inner join ventas as v on c.cedula_cliente = v.cedula_cliente group by v.cedula_cliente");
 	rs = ps.executeQuery();
+	
+	
+	String sql = "SELECT sum(total_venta) as total from ventas";
+	ps = con.prepareStatement(sql);
+	rs = ps.executeQuery();
+
+	int total = 0;
+	while (rs.next()) {
+		
+		total = rs.getInt(1);
+
+						}
 	%>
 
 	<div>
@@ -84,6 +96,8 @@
 					%>
 
 				</table>
+				
+				<label>Total Venta</label> <input type="text" name="total" value="<%=total%>">
 			</div>
 			<!-- <div class="usuario-info"></div> -->
 		</div>
