@@ -26,6 +26,8 @@
 
 	PreparedStatement ps;
 	ResultSet rs;
+	
+	ResultSet res = null;
 
 	ps = con.prepareStatement(
 			"select c.cedula_cliente,c.nombre_cliente,sum(v.total_venta) from clientes as c inner join ventas as v on c.cedula_cliente = v.cedula_cliente group by v.cedula_cliente");
@@ -34,12 +36,12 @@
 	
 	String sql = "SELECT sum(total_venta) as total from ventas";
 	ps = con.prepareStatement(sql);
-	rs = ps.executeQuery();
+	res = ps.executeQuery();
 
 	int total = 0;
-	while (rs.next()) {
+	while (res.next()) {
 		
-		total = rs.getInt(1);
+		total = res.getInt(1);
 
 						}
 	%>
