@@ -99,7 +99,7 @@
 
 				</table>
 				
-				<label>Total Venta</label> <input type="text" name="total" value="<%=total%>">
+				<center><label>Total Venta</label> <input type="text" name="total" value="<%=total%>"></center>
 			</div>
 			<!-- <div class="usuario-info"></div> -->
 		</div>
