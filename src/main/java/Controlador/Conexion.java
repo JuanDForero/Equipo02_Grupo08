@@ -7,15 +7,15 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
 
-	private String bd = "tienda";
-	private String url = "jdbc:mysql://localhost:3306/" + bd;
-	private String user = "root";
-	private String pass = "";
+	private String bd = "Grupo8_Equipo_2";
+	private String url = "jdbc:mariadb://prestamosvf.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/" + bd;
+	private String user = "admin";
+	private String pass = "Ciclo3_admi123";
 	Connection con = null;
 
 	public Connection Conecta() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("org.mariadb.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, pass);
 			JOptionPane.showMessageDialog(null, "Conexion OK...");
 		} catch (Exception e) {
