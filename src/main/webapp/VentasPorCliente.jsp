@@ -15,12 +15,15 @@
 
 	<%
 	Connection con;
-	String url = "jdbc:mysql://localhost:3306/tienda";
-	String Driver = "com.mysql.jdbc.Driver";
-	String User = "root";
-	String clave = "";
-
+	String bd = "Grupo8_Equipo_2";
+	String url = "jdbc:mariadb://prestamosvf.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/" + bd;
+	String Driver = "org.mariadb.jdbc.Driver";
+	String User = "admin";
+	String clave = "Ciclo3_admi123";
+	
+	
 	Class.forName(Driver);
+
 
 	con = DriverManager.getConnection(url, User, clave);
 
