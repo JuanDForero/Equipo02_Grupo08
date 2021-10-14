@@ -43,7 +43,7 @@
 				<li id="producto"><a class="menu" href="CRUD-Producto.jsp">Productos</a></li>
 				<li id="venta"><a class="menu" href="CRUD-Venta.jsp">Ventas</a></li>
 				<li id="reporte"><a class="menu" href="CRUD-Reporte.jsp">Reportes</a></li>
-				<li class="cta"><a class="menu" href="Login.jsp">Sign Out</a></li>
+				<li class="cta"><a class="menu" href="index.jsp">Sign Out</a></li>
 			</ul>
 		</header>
 	</div>

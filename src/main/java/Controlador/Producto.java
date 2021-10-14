@@ -106,7 +106,7 @@ public class Producto extends HttpServlet {
 			Part archivo = request.getPart("archivo");
 			JOptionPane.showMessageDialog(null, "Se trajo el archivo..."+archivo.getName());
 			// String tipo= archivo.getContentType();
-			String Url = "C:/Users/yazo_/eclipse-workspace/TiendaGenerica/src/main/webapp/Documentos/";
+			String Url = "C:/Users/yazo_/git/Equipo02_Grupo08/src/main/webapp/Documentos/";
 			 //String Url="C:\\Users\\yazo_\\eclipse-workspace\\TiendaGenerica\\src\\main\\webapp\\Documentos";
 
 			if (archivo.getContentType().equals("application/vnd.ms-excel")) {

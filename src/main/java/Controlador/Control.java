@@ -41,7 +41,7 @@ public class Control extends HttpServlet {
 				response.sendRedirect("Menu.jsp");
 			}else {
 				JOptionPane.showMessageDialog(null, "Datos Incorrectos");
-				response.sendRedirect("Login.jsp");
+				response.sendRedirect("index.jsp");
 			}
 		}
 	}
