@@ -48,7 +48,7 @@ public class Venta extends HttpServlet {
 			} catch (Exception e) {
 				response.sendRedirect("CRUD-Usuario.jsp?men=El Cliente no se encontro");
 				
-				JOptionPane.showMessageDialog(null, "El Cliente no se encontro.");
+				
 			}
 			
 		}

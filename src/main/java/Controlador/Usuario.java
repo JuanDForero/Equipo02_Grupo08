@@ -46,10 +46,10 @@ public class Usuario extends HttpServlet {
 			UsuarioDTO user = new UsuarioDTO(id, email, nombre, pass, usuario);
 
 			if (userDAO.Inserta_Usuario(user)) {
-				JOptionPane.showMessageDialog(null, "Registro exitoso");
+				
 				response.sendRedirect("CRUD-Usuario.jsp");
 			} else {
-				JOptionPane.showMessageDialog(null, "Registro fallido");
+				
 				response.sendRedirect("CRUD-Usuario.jsp");
 			}
 		}
@@ -85,10 +85,10 @@ public class Usuario extends HttpServlet {
 			usuario = request.getParameter("user");
 			UsuarioDTO user = new UsuarioDTO(id, email, nombre, pass, usuario);
 			if (userDAO.Actualizar_Usuario(user)) {
-				JOptionPane.showMessageDialog(null, "El Usuario se Actualizo Exitosamente.");
+				
 				response.sendRedirect("CRUD-Usuario.jsp?men=Usuario Actualizado Exitosamente.");
 			} else {
-				JOptionPane.showMessageDialog(null, "El Usuario no se Modifico.");
+				
 				response.sendRedirect("CRUD-Usuario.jsp?men=El Usuario no se Modifico.");
 			}
 		}
@@ -98,7 +98,7 @@ public class Usuario extends HttpServlet {
 		if (request.getParameter("eliminar") != null) {
 			int id;
 			id = Integer.parseInt(request.getParameter("id"));
-			int op = JOptionPane.showConfirmDialog(null, "Desea Eliminar al Usuario ID: " + id);
+			int op = 0;
 			if (op == 0) {
 				if (userDAO.Eliminar_Usuario(id)) {
 					response.sendRedirect("CRUD-Usuario.jsp?men=Usuario Eliminado");

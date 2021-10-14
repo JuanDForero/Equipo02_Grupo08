@@ -44,10 +44,10 @@ public class Cliente extends HttpServlet {
 			ClienteDTO cli = new ClienteDTO(id, direccion, email, nombre, telefono);
 
 			if (cliDAO.Inserta_Cliente(cli)) {
-				JOptionPane.showMessageDialog(null, "Registro exitoso");
+				
 				response.sendRedirect("CRUD-Cliente.jsp");
 			} else {
-				JOptionPane.showMessageDialog(null, "Registro fallido");
+				
 				response.sendRedirect("CRUD-Cliente.jsp");
 			}
 		}
@@ -85,7 +85,7 @@ public class Cliente extends HttpServlet {
 			if (cliDAO.Actualizar_Cliente(cli)) {
 				response.sendRedirect("CRUD-Cliente.jsp?men=Cliente Actualizado Exitosamente.");
 			} else {
-				JOptionPane.showMessageDialog(null, "El Cliente no se Modifico.");
+				
 				response.sendRedirect("CRUD-Cliente.jsp?men=El Cliente no se Modifico.");
 			}
 		}
@@ -95,7 +95,7 @@ public class Cliente extends HttpServlet {
 		if (request.getParameter("eliminar") != null) {
 			int id;
 			id = Integer.parseInt(request.getParameter("id"));
-			int op = JOptionPane.showConfirmDialog(null, "Desea Eliminar el Cliente ID: " + id);
+			int op = 0;
 			if (op == 0) {
 				if (cliDAO.Eliminar_Cliente(id)) {
 					response.sendRedirect("CRUD-Cliente.jsp?men=Cliente Eliminado");

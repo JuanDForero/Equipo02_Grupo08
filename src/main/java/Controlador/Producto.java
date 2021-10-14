@@ -79,7 +79,7 @@ public class Producto extends HttpServlet {
 			if (prodDAO.Actualizar_Producto(prod)) {
 				response.sendRedirect("CRUD-Producto.jsp?men=Producto Actualizado Exitosamente.");
 			} else {
-				JOptionPane.showMessageDialog(null, "El Producto no se Modifico.");
+				
 				response.sendRedirect("CRUD-Producto.jsp?men=El Producto no se Modifico.");
 			}
 		}
@@ -89,7 +89,7 @@ public class Producto extends HttpServlet {
 		if (request.getParameter("eliminar") != null) {
 			int codigo;
 			codigo = Integer.parseInt(request.getParameter("codigo"));
-			int op = JOptionPane.showConfirmDialog(null, "Desea Eliminar el Producto Codigo: " + codigo);
+			int op = 0;
 			if (op == 0) {
 				if (prodDAO.Eliminar_Producto(codigo)) {
 					response.sendRedirect("CRUD-Producto.jsp?men=Producto Eliminado");
@@ -104,7 +104,7 @@ public class Producto extends HttpServlet {
 		/* METODO CARGAR */
 		if (request.getParameter("cargar") != null) {
 			Part archivo = request.getPart("archivo");
-			JOptionPane.showMessageDialog(null, "Se trajo el archivo..."+archivo.getName());
+			
 			// String tipo= archivo.getContentType();
 			String Url = "C:/Users/yazo_/git/Equipo02_Grupo08/src/main/webapp/Documentos/";
 			 //String Url="C:\\Users\\yazo_\\eclipse-workspace\\TiendaGenerica\\src\\main\\webapp\\Documentos";
@@ -122,7 +122,7 @@ public class Producto extends HttpServlet {
 					file.close();
 					escribir.close();
 
-					JOptionPane.showMessageDialog(null, "Se cargo el archivo correctamente");
+					
 					if (prodDAO.Cargar_Producto(Url + "prueba08.csv")) {
 						// JOptionPane.showMessageDialog(null, "Se registro los Producto Correctamente");
 						response.sendRedirect("CRUD-Producto.jsp?men=Se registro los Productos Correctamente");
@@ -131,7 +131,7 @@ public class Producto extends HttpServlet {
 					}
 
 				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Error al cargar el archivo" + e);
+					
 					response.sendRedirect("CRUD-Producto.jsp?men=Error al cargar el archivo");
 				}
 			} else {

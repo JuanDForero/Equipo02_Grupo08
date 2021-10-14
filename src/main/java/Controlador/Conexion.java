@@ -17,9 +17,9 @@ public class Conexion {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, pass);
-			JOptionPane.showMessageDialog(null, "Conexion OK...");
+			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Error al Conectar BD" + e);
+			
 		}
 		return con;
 	}

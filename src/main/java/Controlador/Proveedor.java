@@ -44,10 +44,10 @@ public class Proveedor extends HttpServlet {
 			ProveedorDTO pro= new ProveedorDTO(id,ciudad,direccion,nombre,telefono);
 			
 			if(proDAO.Inserta_Proveedor(pro)) {
-				JOptionPane.showMessageDialog(null, "Registro exitoso");
+				
 				response.sendRedirect("CRUD-Proveedor.jsp");
 			}else {
-				JOptionPane.showMessageDialog(null, "Registro fallido");
+				
 				response.sendRedirect("CRUD-Proveedor.jsp");
 			}
 		}
@@ -83,10 +83,10 @@ public class Proveedor extends HttpServlet {
 			telefono=request.getParameter("cellphone");
 			ProveedorDTO pro= new ProveedorDTO(id,ciudad,direccion,nombre,telefono);
 			if (proDAO.Actualizar_Proveedor(pro)) {
-				JOptionPane.showMessageDialog(null, "El Proveedor se Actualizo Exitosamente.");
+				
 				response.sendRedirect("CRUD-Proveedor.jsp?men=Proveedor Actualizado Exitosamente.");
 			} else {
-				JOptionPane.showMessageDialog(null, "El Proveedor no se Modifico.");
+				
 				response.sendRedirect("CRUD-Proveedor.jsp?men=El Proveedor no se Modifico.");
 			}
 		}
@@ -96,7 +96,7 @@ public class Proveedor extends HttpServlet {
 		if (request.getParameter("eliminar") != null) {
 			int id;
 			id = Integer.parseInt(request.getParameter("id"));
-			int op = JOptionPane.showConfirmDialog(null, "Desea Eliminar al Proveedor NIT: " + id);
+			int op = 0;
 			if (op == 0) {
 				if (proDAO.Eliminar_Proveedor(id)) {
 					response.sendRedirect("CRUD-Proveedor.jsp?men=Proveedor Eliminado");
