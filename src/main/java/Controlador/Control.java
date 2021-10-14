@@ -37,10 +37,10 @@ public class Control extends HttpServlet {
 			password=request.getParameter("pass");
 			
 			if(usuario.equals("admininicial") && password.equals("admin123456")) {
-				JOptionPane.showMessageDialog(null, "Bienvenido!! Administrador");
+				
 				response.sendRedirect("Menu.jsp");
 			}else {
-				JOptionPane.showMessageDialog(null, "Datos Incorrectos");
+				
 				response.sendRedirect("index.jsp");
 			}
 		}
