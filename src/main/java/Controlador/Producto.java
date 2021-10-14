@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import javax.swing.JOptionPane;
+
 
 import Modelo.Producto.ProductoDAO;
 import Modelo.Producto.ProductoDTO;
@@ -124,7 +124,7 @@ public class Producto extends HttpServlet {
 
 					
 					if (prodDAO.Cargar_Producto(Url + "prueba08.csv")) {
-						// JOptionPane.showMessageDialog(null, "Se registro los Producto Correctamente");
+						
 						response.sendRedirect("CRUD-Producto.jsp?men=Se registro los Productos Correctamente");
 					} else {
 						response.sendRedirect("CRUD-Producto.jsp?men=No se registraron Productos");
@@ -135,7 +135,7 @@ public class Producto extends HttpServlet {
 					response.sendRedirect("CRUD-Producto.jsp?men=Error al cargar el archivo");
 				}
 			} else {
-				// JOptionPane.showMessageDialog(null, "Formato de archivo no permitido");
+				
 				response.sendRedirect("CRUD-Producto.jsp?men=Formato de archivo no permitido");
 			}
 
