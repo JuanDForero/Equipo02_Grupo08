@@ -10,6 +10,7 @@
 <meta charset="ISO-8859-1">
 <title>REPORTE DE USUARIOS</title>
 <link rel="stylesheet" href="CSS/Reporte.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.js"></script>
 </head>
 <body>
 
@@ -104,6 +105,12 @@
 				
 				<center><label>Total Venta</label> <input type="text" name="total" value="<%=total%>"></center>
 			</div>
+			
+			
+		
+
+
+
 			<!-- <div class="usuario-info"></div> -->
 		</div>
 	</div>

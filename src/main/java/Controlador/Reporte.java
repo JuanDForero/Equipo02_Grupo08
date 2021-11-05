@@ -23,6 +23,14 @@ public class Reporte extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		if (request.getParameter("stock") != null) {
+			
+			
+			response.sendRedirect("Stock.jsp");
+		
+	}
+		
 		if (request.getParameter("listaU") != null) {
 			
 				
