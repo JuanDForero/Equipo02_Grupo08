@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import Modelo.Usuario.UsuarioDAO;
 import Modelo.Usuario.UsuarioDTO;
@@ -109,6 +109,14 @@ public class Usuario extends HttpServlet {
 				response.sendRedirect("CRUD-Usuario.jsp");
 			}
 		}
+		
+		/*CERRAR SESION*/
+		if(request.getParameter("salir") != null) {
+			HttpSession sesion = request.getSession();
+			sesion.removeAttribute("nombre");//Removiendo el atributo del nombre por lo cual sera null
+			response.sendRedirect("index.jsp");
+		}
+		
 	}
 
 }
