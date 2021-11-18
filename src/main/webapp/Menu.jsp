@@ -53,14 +53,13 @@
                         <a href="CRUD-Proveedor.jsp"><i class="fas fa-clipboard"></i><span>Proveedores</span></a>
                         <a href="CRUD-Producto.jsp"><i class="fas fa-memory"></i><span>Productos</span></a>
                         <a href="CRUD-Venta.jsp"><i class="fas fa-cart-arrow-down"></i><span>Ventas</span></a>
-                        <a href="CRUD-Reporte.jsp"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+	                    <a href="CRUD-Reporte.jsp"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
                     </nav>
                 </div>
                 <main class="main col">
                     <div class="row justify-content-center align-content-center text-center">
                         <div class="columna col-lg-6">
                             <!-- Contenido -->
-                            
                         </div>
                     </div>
                 </main>
