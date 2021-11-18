@@ -127,6 +127,19 @@
                                 </div> <!-- END: .modal__container -->
                             </div> <!-- END: .modal -->
                             <!-- partial -->
+                            <footer class="sticky-footer bg-light ">
+
+                            <div class="container my-auto">
+                          
+                              <div class="copyright text-center my-auto"> 
+                          
+                                <span> &copy; 2021 Copyright: Technycal System  </span>
+                          
+                              </div>
+                          
+                            </div>
+                          
+                          </footer>
                         </div>
                     </div>
                 </main>

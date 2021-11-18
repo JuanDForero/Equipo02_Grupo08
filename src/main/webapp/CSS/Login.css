@@ -42,25 +42,25 @@ body{
 }
 
 .img-1 {
-    background-image: url('Recursos\img-1.jpg');
+    background-image: url('TiendaGenerica/src/main/webapp/Recursos/img-1.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .img-2 {
-    background-image: url('Recursos\img-2.jpg');
+    background-image: url('/TiendaGenerica/src/main/webapp/Recursos/img-2.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .img-3 {
-    background-image: url('Recursos\img-3.jpg');
+    background-image: url('/TiendaGenerica/src/main/webapp/Recursos/img-3.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .img-4 {
-    background-image: url('Recursos\img-4.jpg');
+    background-image: url('/TiendaGenerica/src/main/webapp/Recursos/img-4.jpg');
     background-size: cover;
     background-position: center;
 }

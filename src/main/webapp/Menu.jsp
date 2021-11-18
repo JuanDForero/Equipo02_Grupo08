@@ -60,6 +60,7 @@
                     <div class="row justify-content-center align-content-center text-center">
                         <div class="columna col-lg-6">
                             <!-- Contenido -->
+                            
                         </div>
                     </div>
                 </main>

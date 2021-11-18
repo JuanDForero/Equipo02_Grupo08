@@ -42,24 +42,28 @@
 						</ol>
 						<div class="carousel-inner">
 							<div class="carousel-item img-1 min-vh-100 active">
+							<img src="Recursos\img-1.jpg " width="1100" height="830" />
 								<div class="carousel-caption d-none d-md-block">
 									<h5 class="font-weight-bold">La más potente del mercado</h5>
 									<a class="text-muted text-decoration-none">Visita nuestra tienda</a>
 								</div>
 							</div>
 							<div class="carousel-item img-2 min-vh-100">
+							<img src="Recursos\img-2.jpg" width="1100"height="830">
 								<div class="carousel-caption d-none d-md-block">
 									<h5 class="font-weight-bold">Descubre la nueva generación</h5>
 									<a class="text-muted text-decoration-none">Visita nuestra tienda</a>
 								</div>
 							</div>
 							<div class="carousel-item img-3 min-vh-100">
+							<img src="Recursos\img-3.jpg" width="1100" height="830">
 								<div class="carousel-caption d-none d-md-block">
 									<h5 class="font-weight-bold">La más potente del mercado</h5>
 									<a class="text-muted text-decoration-none">Visita nuestra tienda</a>
 								</div>
 							</div>
 							<div class="carousel-item img-4 min-vh-100">
+							<img src="Recursos\img-4.jpg" width="1100" height="830">
 								<div class="carousel-caption d-none d-md-block">
 									<h5 class="font-weight-bold">Descubre la nueva generación</h5>
 									<a class="text-muted text-decoration-none">Visita nuestra tienda</a>
